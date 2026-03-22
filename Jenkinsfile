@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+
+        PYTHON = "C:/Users/amrut/AppData/Local/Programs/Python/Python313/python.exe"
+    }
+
     stages {
         stage('Clone') {
             steps {
@@ -18,7 +23,7 @@ pipeline {
 
         stage('Run Producer') {
             steps {
-                bat 'python producer/app.py'
+                bat '\"%PYTHON%\" producer/app.py'
             }
         }
     }
