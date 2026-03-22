@@ -3,11 +3,11 @@ from solace.messaging.resources.topic import Topic
 
 service = messaging_service.MessagingService.builder() \
     .from_properties({
-        "solace.messaging.transport.host": "your-host",
-        "solace.messaging.service.vpn-name": "default",
+        "solace.messaging.transport.host": "http://localhost:8080",
+        "solace.messaging.service.vpn-name": "kafka-test",
         "solace.messaging.authentication.scheme": "basic",
-        "solace.messaging.authentication.basic.username": "your-username",
-        "solace.messaging.authentication.basic.password": "your-password"
+        "solace.messaging.authentication.basic.username": "kafka-clientuser",
+        "solace.messaging.authentication.basic.password": "kafka-clientuser"
     }).build()
 
 service.connect()
@@ -15,7 +15,7 @@ service.connect()
 publisher = service.create_direct_message_publisher_builder().build()
 publisher.start()
 
-topic = Topic.of("demo/event")
+topic = Topic.of("KAFKA/SOLACE")
 
 message = service.message_builder().build("Hello from Jenkins 🚀")
 
