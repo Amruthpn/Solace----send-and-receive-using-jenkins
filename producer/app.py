@@ -3,7 +3,7 @@ from solace.messaging.resources.topic import Topic
 
 service = messaging_service.MessagingService.builder() \
     .from_properties({
-        "solace.messaging.transport.host": "tcp://localhost:55555",
+        "solace.messaging.transport.host": "tcp://192.168.0.117:55555",
         "solace.messaging.service.vpn-name": "kafka-test",
         "solace.messaging.authentication.scheme": "basic",
         "solace.messaging.authentication.basic.username": "kafka-clientuser",
